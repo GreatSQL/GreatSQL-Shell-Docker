@@ -34,7 +34,9 @@ Dockerfiles可用于自定义和构建docker映像。[戳此阅读更多关于Do
 - mysqlsh-for-greatsql-8.0.32.patch，需要对MySQL Shell打补丁，才能支持GreatSQL中特有的仲裁节点特性
 
 **提醒**：
+
 1. 如果是在aarch64环境中，则修改Dockerfile的前几行，改成适用于aarch64的镜像即可，例如
+
 ```
 #for x86_64
 #FROM centos:8
@@ -42,6 +44,7 @@ Dockerfiles可用于自定义和构建docker映像。[戳此阅读更多关于Do
 #for aarch64
 FROM docker.io/arm64v8/centos
 ```
+
 2. 在Dockerfile中有个`COPY greatsql_shell_docker_build.tar /opt`的动作，需要自行打包 **greatsql_shell_docker_build.tar** 文件包，主要由一下几个文件组成：
 
 - [antlr4-4.10.0.tar.gz](https://github.com/antlr/antlr4/archive/refs/tags/4.10.tar.gz)
@@ -77,7 +80,9 @@ $ docker logs greatsqlsh | tail
 ```
 
 接下来回退到宿主机，将容器中的二进制包拷贝出来
+
 ```
 $ docker cp greatsqlsh:/opt/greatsql-shell-8.0.32-25-centos-glibc2.28-x86_64.tar.gz /usr/local/
 ```
+
 然后解压缩，就可以在宿主机环境下使用了。
