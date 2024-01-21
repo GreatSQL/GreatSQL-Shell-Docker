@@ -1,4 +1,29 @@
 # GreatSQL-Shell Docker
+---
+## 介绍
+
+GreatSQL Shell相关Docker镜像集。
+
+Dockerfiles可用于自定义和构建docker映像。[戳此阅读更多关于Dockerfiles的文档](https://docs.docker.com/engine/reference/builder/)。
+
+如何构建和运行GreatSQL Shell，请参阅各个目录。
+
+我们非常欢迎和鼓励社区用户提出改进建议或贡献代码、想法，以及其他任何可以帮助改进项目的做法。
+
+如果您发现任何GreatSQL-Shell Docker项目相关的问题、bug，都可以[戳此提交issue](https://gitee.com/GreatSQL/GreatSQL-Shell-Docker/issues)，我们将尽快处理。
+
+## 快速使用
+- 维护者: GreatSQL(greatsql@greatdb.com)
+- 联系人: greatsql@greatdb.com
+- 最新版本：GreatSQL 8.0.32-25
+- 最后更新时间：2024-01-21
+- 支持CPU架构：x86_64、aarch64
+
+## 支持哪些tag
+- [latest](https://hub.docker.com/layers/greatsql/greatsql_shell_build/latest/images/sha256-4a658457738231651010bdf9026164e38b4b455496f3d13a32dcac8f1b8e2b93?context=repo), [8.0.32-25](https://hub.docker.com/layers/greatsql/greatsql_shell_build/8.0.32-25/images/sha256-4a658457738231651010bdf9026164e38b4b455496f3d13a32dcac8f1b8e2b93?context=repo)
+- [latest-arch64](https://hub.docker.com/layers/greatsql/greatsql_shell_build/latest-aarch64/images/sha256-46826329b1f0a6f201ddc30a47bfb9724afd724b116d7a4323d3db21d9ea46e0?context=repo), [8.0.32-25-aarch64](https://hub.docker.com/layers/greatsql/greatsql_shell_build/8.0.32-25-aarch64/images/sha256-46826329b1f0a6f201ddc30a47bfb9724afd724b116d7a4323d3db21d9ea46e0?context=repo)
+
+## 如何使用GreatSQL-Shell镜像
 
 如何利用Docker环境快速编译MySQL Shell for GreatSQL二进制包，详情参考：[MySQL Shell 8.0.32 for GreatSQL编译安装](https://mp.weixin.qq.com/s/bB6ZvV6-yB83otLnv_oqrA)
 
