@@ -1,28 +1,54 @@
 #!/bin/bash
 ##
-## 自动构建GreatSQL Docker编译环境
+## 自动构建GreatSQL Shell Docker编译环境
+## 并创建一个新容器用于编译GreatSQL Shell
 ##
-## 文档：https://gitee.com/GreatSQL/GreatSQL-Doc/blob/master/user-manual/4-install-guide/4-6-install-with-source-code.md
-##
 
-docker build -t greatsql_shell_build_env .
+if [ ! -z "$1" ] ; then
+  if [ "$1" == "aarch64" ] ; then
+    sed -i 's/\(FROM centos:8\)/#\1/ig;s/#\(FROM.*arm64v8\/centos\)/\1/ig' Dockerfile
+  fi
+fi
 
-mysql_src_dir=$1
-shell_src_dir=$2
-boost_src_dir=$3
+echo "1. Docker images **greatsql_shell_build** build start"
+docker build -t greatsql_shell_build .
 
-mysql_basename=$(basename $mysql_src_dir)
-shell_basename=$(basename $shell_src_dir)
-boost_basename=$(basename $boost_src_dir)
+echo
+echo
+echo
 
 if [ $? -ne 0 ];then
-  echo "Docker build error!"
+  echo "Docker images **greatsql_shell_build** build error!"
 else 
-  echo "Docker build success!you can run it:
-
-docker run -d \\
--v $mysql_src_dir:/opt/${mysql_basename} \\
--v $shell_src_dir:/opt/${shell_basename} \\
--v $boost_src_dir:/opt/${boost_basename} \\
---name greatsql_shell_build_env greatsql_shell_build_env"
+  echo "Docker build success!"
 fi
+
+echo
+echo
+echo
+echo "2. Creating docker container to build GreatSQL Shell"
+echo "docker run -td --hostname greatsqlsh --name greatsqlsh greatsql_shell_build"
+docker run -td --hostname greatsqlsh --name greatsqlsh greatsql_shell_build bash
+
+while [ -z "`docker logs greatsqlsh|grep 'MySQL Shell.*GreatSQL.*completed.*TARBALL is'`" ]
+do
+ sleep 10
+ echo "GreatSQL Shell on builing ... sleep 10 sec"
+done
+
+echo
+echo
+echo
+
+if [ $? -ne 0 ];then
+  echo "GreatSQL Shell build error!"
+else 
+  echo "GreatSQL Shell build success!"
+fi
+
+echo "3. Copy GreatSQL-Shell TARBALL to the current directory"
+echo
+echo
+TARFILE=`docker logs greatsqlsh|tail -n 1|awk '{print $NF}'|sed 's/\n//ig;s/\r//ig'`
+docker cp greatsqlsh:/opt/${TARFILE} .
+ls -la ${TARFILE}
