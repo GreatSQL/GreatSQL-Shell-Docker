@@ -39,7 +39,7 @@ $ docker logs greatsqlsh | tail
 $ docker logs greatsqlsh | tail
 1. extracting tarballs
 2. compiling antlr4
-3. compiling antlr4
+3. compiling patchelf
 4. compiling rpcsvc-proto
 5. compiling protobuf
 6. compiling greatsql shell
