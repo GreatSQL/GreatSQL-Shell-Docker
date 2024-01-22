@@ -89,7 +89,7 @@ cmake .. \
 cp /usr/local/lib/libprotobuf.so.30 ${BASE_DIR}/lib/mysqlsh/ && \
 pip3.8 install --user certifi > /dev/null 2>&1 ; \
 ${BASE_DIR}/bin/mysqlsh --version ; \
-cd ${OPT_DIR} ; tar cf ${MYSQLSH_PKG_NAME}.tar ${MYSQLSH_PKG_NAME}; xz -9 -f ${MYSQLSH_PKG_NAME}.tar
+cd ${OPT_DIR} ; tar cf ${MYSQLSH_PKG_NAME}.tar ${MYSQLSH_PKG_NAME}; xz -9 -f -t${JOBS} ${MYSQLSH_PKG_NAME}.tar
 
 echo "7. MySQL Shell for GreatSQL 8.0.32-25 build completed! TARBALL is: "
 ls -la ${MYSQLSH_PKG_NAME}.tar.xz
