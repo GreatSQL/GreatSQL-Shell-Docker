@@ -50,7 +50,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/antlr4 > /dev/null 2>&1 && \
 make -j${JOBS} > /dev/null 2>&1 && make -j${JOBS} install > /dev/null 2>&1
 
 #patchelf
-echo "3. compiling antlr4"
+echo "3. compiling patchelf"
 cd ${OPT_DIR}/${PATCHELF_PKG} && ./bootstrap.sh > /dev/null 2>&1 && ./configure > /dev/null 2>&1 && make -j${JOBS} > /dev/null 2>&1 && make -j${JOBS} install > /dev/null 2>&1
 
 #rpcsvc-proto
