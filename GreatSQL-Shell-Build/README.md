@@ -2,10 +2,6 @@
 ---
 ## 介绍
 
-## 2024.02.20更新
-
-本仓库项目已转移至 [GreatSQL-Docker仓库](https://gitee.com/GreatSQL/GreatSQL-Docker)，本仓库将不再继续更新，请访问 [GreatSQL-Docker仓库](https://gitee.com/GreatSQL/GreatSQL-Docker)。
-
 GreatSQL Shell相关Docker镜像集。
 
 Dockerfiles可用于自定义和构建Docker镜像。[戳此阅读更多关于Dockerfiles的文档](https://docs.docker.com/engine/reference/builder/)。
@@ -14,9 +10,9 @@ Dockerfiles可用于自定义和构建Docker镜像。[戳此阅读更多关于Do
 
 如果您发现任何GreatSQL-Shell Docker项目相关的问题、bug，都可以[戳此提交issue](https://gitee.com/GreatSQL/GreatSQL-Shell-Docker/issues)，我们将尽快处理。
 
-## 快速使用
+## 基本信息
 - 维护者: GreatSQL(greatsql@greatdb.com)
-- 联系人: greatsql@greatdb.com
+- 联系我们: greatsql@greatdb.com
 - 最新版本：GreatSQL 8.0.32-25
 - 最后更新时间：2024-01-21
 - 支持CPU架构：x86_64、aarch64
